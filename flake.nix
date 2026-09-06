@@ -55,28 +55,28 @@
                   pcsclite
                 ]
                 ++ pkgs.lib.optionals pkgs.stdenv.hostPlatform.isLinux [
-                  libxkbcommon
                   libGL
-                  wayland
                   libx11
                   libxcb
                   libxcursor
                   libxi
+                  libxkbcommon
                   libxrandr
+                  wayland
                 ];
 
               postFixup = pkgs.lib.optionalString pkgs.stdenv.hostPlatform.isLinux ''
                 patchelf --set-rpath "${
                   pkgs.lib.makeLibraryPath [
-                    pkgs.pcsclite
-                    pkgs.wayland
+                    pkgs.libGL
                     pkgs.libx11
                     pkgs.libxcb
                     pkgs.libxcursor
                     pkgs.libxi
-                    pkgs.libxrandr
-                    pkgs.libGL
                     pkgs.libxkbcommon
+                    pkgs.libxrandr
+                    pkgs.pcsclite
+                    pkgs.wayland
                   ]
                 }" $out/bin/keyroost
               '';

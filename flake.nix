@@ -59,6 +59,7 @@
                   libGL
                   wayland
                   libx11
+                  libxcb
                   libxcursor
                   libxi
                   libxrandr
@@ -70,6 +71,7 @@
                     pkgs.pcsclite
                     pkgs.wayland
                     pkgs.libx11
+                    pkgs.libxcb
                     pkgs.libxcursor
                     pkgs.libxi
                     pkgs.libxrandr
